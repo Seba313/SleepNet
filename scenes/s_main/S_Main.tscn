@@ -33,6 +33,7 @@ data = PoolVector3Array( -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.
 
 [sub_resource type="Animation" id=4]
 length = 8.0
+loop = true
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:translation")
 tracks/0/interp = 1
@@ -40,19 +41,19 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 2, 3.9, 6, 8 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"times": PoolRealArray( 0, 4, 8 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
 "update": 0,
-"values": [ Vector3( 6.24577, 2.5396, -17.2226 ), Vector3( 6.24577, 0.877409, -17.2226 ), Vector3( 1.3739, 0.877409, -17.2226 ), Vector3( 6.24577, 0.877409, -7.22258 ), Vector3( 6.24577, 2.5396, -7.22258 ) ]
+"values": [ Vector3( 21.3739, 0.877409, -17.2226 ), Vector3( 11.8743, 0.877409, -17.2226 ), Vector3( 21.3739, 0.877409, -17.2226 ) ]
 }
 
 [sub_resource type="ShaderMaterial" id=5]
 shader = ExtResource( 9 )
 shader_param/snapRes = 10.0
 
-[sub_resource type="PlaneMesh" id=7]
+[sub_resource type="PlaneMesh" id=6]
 
-[sub_resource type="SpatialMaterial" id=8]
+[sub_resource type="SpatialMaterial" id=7]
 flags_transparent = true
 params_specular_mode = 1
 params_blend_mode = 1
@@ -62,7 +63,7 @@ albedo_color = Color( 0, 0, 0, 1 )
 roughness = 0.32
 roughness_texture = ExtResource( 10 )
 
-[sub_resource type="BoxShape" id=6]
+[sub_resource type="BoxShape" id=8]
 extents = Vector3( 10, 3, 7 )
 
 [node name="S_Main" type="Spatial"]
@@ -82,7 +83,7 @@ material/0 = ExtResource( 7 )
 shape = SubResource( 2 )
 
 [node name="BigCube2" type="MeshInstance" parent="ArenaGeometry"]
-transform = Transform( -1.74846e-07, 12, -1.31134e-07, 0, -5.24537e-07, -3, -4, -5.24537e-07, 5.73206e-15, 13.5, 2, -17.4455 )
+transform = Transform( -1.74846e-07, 12, -1.31134e-07, 0, -5.24537e-07, -3, -4, -5.24537e-07, 5.73206e-15, 21.1503, 2, -24.1197 )
 use_in_baked_light = true
 mesh = SubResource( 1 )
 material/0 = ExtResource( 7 )
@@ -104,13 +105,13 @@ material/0 = ExtResource( 7 )
 shape = SubResource( 3 )
 
 [node name="Ladder" parent="ArenaGeometry" instance=ExtResource( 4 )]
-transform = Transform( -4.37114e-08, 0, 7, 0, 1.51, 0, -1, 0, -3.0598e-07, 13.25, 2, -15.25 )
+transform = Transform( -4.37114e-08, 0, 7, 0, 1.51, 0, -1, 0, -3.0598e-07, 20.9003, 2, -21.9242 )
 
 [node name="MovingPlatform" parent="ArenaGeometry" instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3739, 0.877409, -17.2226 )
-visible = false
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.8743, 0.877409, -17.2226 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="ArenaGeometry/MovingPlatform"]
+autoplay = "Nowa animacja"
 "anims/Nowa animacja" = SubResource( 4 )
 
 [node name="FPS_Counter" parent="." instance=ExtResource( 5 )]
@@ -311,8 +312,8 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6, 0, 6
 
 [node name="MeshInstance" type="MeshInstance" parent="EdensFlat/EdensFlat_kitchen_floor/Meshes"]
 transform = Transform( -5.5, 1.50996e-07, -9.90035e-15, 0, -5.13382e-08, -1.76172, -8.30477e-07, -1, 6.55671e-08, 2, 5, 6 )
-mesh = SubResource( 7 )
-material/0 = SubResource( 8 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 7 )
 
 [node name="rain" parent="EdensFlat/EdensFlat_kitchen_floor/Meshes" instance=ExtResource( 23 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 5.4, 6.4 )
@@ -356,13 +357,13 @@ spot_angle = 87.553
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 4, -2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="EdensFlat/EdensFlat_kitchen_floor/Areas/Kitchen"]
-shape = SubResource( 6 )
+shape = SubResource( 8 )
 
 [node name="Bedroom" type="Area" parent="EdensFlat/EdensFlat_kitchen_floor/Areas"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 4, -2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="EdensFlat/EdensFlat_kitchen_floor/Areas/Bedroom"]
-shape = SubResource( 6 )
+shape = SubResource( 8 )
 
 [node name="EdensFlat_kitchen_walls" type="Spatial" parent="EdensFlat"]
 
