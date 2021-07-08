@@ -21,7 +21,7 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 0.89897, 0, -1, 0, -4.37114e-08, 0
 layers = 2147483650
 pixel_size = 0.02
 frames = SubResource( 1 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="Rain2" type="AnimatedSprite3D" parent="."]
@@ -29,7 +29,7 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 0.89897, 0, -1, 0, -4.37114e-08, 0
 layers = 2147483650
 pixel_size = 0.02
 frames = SubResource( 1 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="AudioStreamPlayer3D2" type="AudioStreamPlayer3D" parent="."]

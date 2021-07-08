@@ -28,3 +28,23 @@ func _input(event: InputEvent) -> void:
 			"VISIBLE":
 				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 				mouse_mode = "CAPTURED"
+
+
+func _on_Kitchen_body_entered(body):
+	if $EdensFlat/EdensFlat_kitchen/Lighs/light_kitchen.visible == false:
+		$EdensFlat/EdensFlat_kitchen/Lighs/light_kitchen.visible = true
+		$EdensFlat/EdensFlat_kitchen/Sounds/switch_ON.play()
+
+func _on_Kitchen_body_exited(body):
+	if $EdensFlat/EdensFlat_kitchen/Lighs/light_kitchen.visible == true:
+		$EdensFlat/EdensFlat_kitchen/Lighs/light_kitchen.visible = false
+		$EdensFlat/EdensFlat_kitchen/Sounds/switch_OFF.play()
+
+
+# kitchbatch doors
+func _on_door_kitchbath_openclose_body_entered(body):
+	#var doors_kitchbatch_state = true
+	$EdensFlat/doors/kitchbath/AnimationPlayer.play("doors_kitchbatch")
+
+func _on_door_kitchbath_openclose_body_exited(body):
+	$EdensFlat/doors/kitchbath/AnimationPlayer.play_backwards("doors_kitchbatch")

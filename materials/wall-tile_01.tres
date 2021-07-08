@@ -4,22 +4,22 @@
 [ext_resource path="res://textures/128px_floor_tiles_04_DF.png" type="Texture" id=2]
 [ext_resource path="res://textures/128px_metal-scratch_BW.png" type="Texture" id=3]
 
-[sub_resource type="VisualShaderNodeTexture" id=7]
+[sub_resource type="VisualShaderNodeTexture" id=1]
 texture = ExtResource( 3 )
 
-[sub_resource type="VisualShaderNodeScalarOp" id=8]
+[sub_resource type="VisualShaderNodeScalarOp" id=2]
 output_port_for_preview = 0
 default_input_values = [ 0, 0.0, 1, 0.1 ]
 operator = 2
 
-[sub_resource type="VisualShaderNodeTexture" id=1]
+[sub_resource type="VisualShaderNodeTexture" id=3]
 texture = ExtResource( 2 )
 
-[sub_resource type="VisualShaderNodeColorConstant" id=2]
+[sub_resource type="VisualShaderNodeColorConstant" id=4]
 output_port_for_preview = 0
 constant = Color( 0, 0, 0, 1 )
 
-[sub_resource type="VisualShaderNodeScalarOp" id=4]
+[sub_resource type="VisualShaderNodeScalarOp" id=5]
 output_port_for_preview = 0
 default_input_values = [ 0, 0.0, 1, 0.5 ]
 operator = 1
@@ -27,7 +27,7 @@ operator = 1
 [sub_resource type="VisualShaderNodeTexture" id=6]
 texture = ExtResource( 1 )
 
-[sub_resource type="VisualShader" id=5]
+[sub_resource type="VisualShader" id=7]
 code = "shader_type spatial;
 render_mode specular_schlick_ggx;
 
@@ -83,19 +83,19 @@ void light() {
 "
 graph_offset = Vector2( -435, -34.5 )
 nodes/fragment/0/position = Vector2( 300, 60 )
-nodes/fragment/2/node = SubResource( 1 )
+nodes/fragment/2/node = SubResource( 3 )
 nodes/fragment/2/position = Vector2( -720, 100 )
-nodes/fragment/4/node = SubResource( 2 )
+nodes/fragment/4/node = SubResource( 4 )
 nodes/fragment/4/position = Vector2( -260, 460 )
-nodes/fragment/8/node = SubResource( 4 )
+nodes/fragment/8/node = SubResource( 5 )
 nodes/fragment/8/position = Vector2( -160, 100 )
 nodes/fragment/9/node = SubResource( 6 )
 nodes/fragment/9/position = Vector2( 0, 400 )
-nodes/fragment/10/node = SubResource( 7 )
+nodes/fragment/10/node = SubResource( 1 )
 nodes/fragment/10/position = Vector2( -720, 320 )
-nodes/fragment/11/node = SubResource( 8 )
+nodes/fragment/11/node = SubResource( 2 )
 nodes/fragment/11/position = Vector2( -400, 240 )
 nodes/fragment/connections = PoolIntArray( 9, 0, 0, 7, 2, 0, 8, 0, 10, 0, 11, 0, 11, 0, 8, 1, 8, 0, 0, 0, 4, 0, 0, 3 )
 
 [resource]
-shader = SubResource( 5 )
+shader = SubResource( 7 )
