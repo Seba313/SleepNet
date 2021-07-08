@@ -8,8 +8,122 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node",
+"class": "MMGenBase",
+"language": "GDScript",
+"path": "res://addons/material_maker/engine/gen_base.gd"
+}, {
+"base": "MMGenTexture",
+"class": "MMGenBuffer",
+"language": "GDScript",
+"path": "res://addons/material_maker/engine/gen_buffer.gd"
+}, {
+"base": "MMGenTexture",
+"class": "MMGenComment",
+"language": "GDScript",
+"path": "res://addons/material_maker/engine/gen_comment.gd"
+}, {
+"base": "Object",
+"class": "MMGenContext",
+"language": "GDScript",
+"path": "res://addons/material_maker/engine/gen_context.gd"
+}, {
+"base": "MMGenBase",
+"class": "MMGenDebug",
+"language": "GDScript",
+"path": "res://addons/material_maker/engine/gen_debug.gd"
+}, {
+"base": "MMGenBase",
+"class": "MMGenExport",
+"language": "GDScript",
+"path": "res://addons/material_maker/engine/gen_export.gd"
+}, {
+"base": "MMGenBase",
+"class": "MMGenGraph",
+"language": "GDScript",
+"path": "res://addons/material_maker/engine/gen_graph.gd"
+}, {
+"base": "MMGenBase",
+"class": "MMGenIOs",
+"language": "GDScript",
+"path": "res://addons/material_maker/engine/gen_ios.gd"
+}, {
+"base": "MMGenTexture",
+"class": "MMGenImage",
+"language": "GDScript",
+"path": "res://addons/material_maker/engine/gen_image.gd"
+}, {
+"base": "MMGenTexture",
+"class": "MMGenIterateBuffer",
+"language": "GDScript",
+"path": "res://addons/material_maker/engine/gen_iterate_buffer.gd"
+}, {
+"base": "MMGenShader",
+"class": "MMGenMaterial",
+"language": "GDScript",
+"path": "res://addons/material_maker/engine/gen_material.gd"
+}, {
+"base": "MMGenBase",
+"class": "MMGenRemote",
+"language": "GDScript",
+"path": "res://addons/material_maker/engine/gen_remote.gd"
+}, {
+"base": "MMGenBase",
+"class": "MMGenShader",
+"language": "GDScript",
+"path": "res://addons/material_maker/engine/gen_shader.gd"
+}, {
+"base": "MMGenBase",
+"class": "MMGenSwitch",
+"language": "GDScript",
+"path": "res://addons/material_maker/engine/gen_switch.gd"
+}, {
+"base": "MMGenTexture",
+"class": "MMGenText",
+"language": "GDScript",
+"path": "res://addons/material_maker/engine/gen_text.gd"
+}, {
+"base": "MMGenBase",
+"class": "MMGenTexture",
+"language": "GDScript",
+"path": "res://addons/material_maker/engine/gen_texture.gd"
+}, {
+"base": "Object",
+"class": "MMGradient",
+"language": "GDScript",
+"path": "res://addons/material_maker/types/gradient.gd"
+}, {
+"base": "Reference",
+"class": "MMPaths",
+"language": "GDScript",
+"path": "res://addons/material_maker/engine/paths.gd"
+}, {
+"base": "Node",
+"class": "MMType",
+"language": "GDScript",
+"path": "res://addons/material_maker/types/types.gd"
+} ]
 _global_script_class_icons={
+"MMGenBase": "",
+"MMGenBuffer": "",
+"MMGenComment": "",
+"MMGenContext": "",
+"MMGenDebug": "",
+"MMGenExport": "",
+"MMGenGraph": "",
+"MMGenIOs": "",
+"MMGenImage": "",
+"MMGenIterateBuffer": "",
+"MMGenMaterial": "",
+"MMGenRemote": "",
+"MMGenShader": "",
+"MMGenSwitch": "",
+"MMGenText": "",
+"MMGenTexture": "",
+"MMGradient": "",
+"MMPaths": "",
+"MMType": ""
 }
 
 [application]
@@ -21,6 +135,10 @@ config/icon="res://icon.png"
 [autoload]
 
 G="*res://g.gd"
+
+[editor_plugins]
+
+enabled=PoolStringArray(  )
 
 [importer_defaults]
 
