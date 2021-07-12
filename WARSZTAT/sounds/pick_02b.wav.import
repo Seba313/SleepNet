@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/pick_02b.wav-e9ebf02541e6be851f5998b958881573.sample"
+
+[deps]
+
+source_file="res://WARSZTAT/sounds/pick_02b.wav"
+dest_files=[ "res://.import/pick_02b.wav-e9ebf02541e6be851f5998b958881573.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

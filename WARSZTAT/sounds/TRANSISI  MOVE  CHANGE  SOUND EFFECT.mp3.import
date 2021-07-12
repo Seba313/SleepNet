@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/TRANSISI  MOVE  CHANGE  SOUND EFFECT.mp3-62feed2befc397a458578325613f1cd4.mp3str"
+
+[deps]
+
+source_file="res://WARSZTAT/sounds/TRANSISI  MOVE  CHANGE  SOUND EFFECT.mp3"
+dest_files=[ "res://.import/TRANSISI  MOVE  CHANGE  SOUND EFFECT.mp3-62feed2befc397a458578325613f1cd4.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
