@@ -1,4 +1,4 @@
-[gd_scene load_steps=41 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://prefabs/wall_corner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/s_main/s_main.gd" type="Script" id=2]
@@ -28,7 +28,9 @@
 [ext_resource path="res://sounds/Light-Switch_OFF.ogg" type="AudioStream" id=26]
 [ext_resource path="res://sounds/Light-Switch_ON.ogg" type="AudioStream" id=27]
 [ext_resource path="res://prefabs/wall_door_bathroom_R.tscn" type="PackedScene" id=28]
-[ext_resource path="res://prefabs/wall_corner_bathroom.tscn" type="PackedScene" id=29]
+[ext_resource path="res://prefabs/wall_corner_bathroom_IN.tscn" type="PackedScene" id=29]
+[ext_resource path="res://prefabs/wall_corner_bathroom_OUT.tscn" type="PackedScene" id=30]
+[ext_resource path="res://prefabs/wall_bathroom.tscn" type="PackedScene" id=31]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 1, 1, 1 )
@@ -547,10 +549,22 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 6 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2 )
 
 [node name="wall_corner_bathroom" parent="EdensFlat/EdensFlat_bathroom/Meshes" instance=ExtResource( 29 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -2 )
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, -2 )
+
+[node name="wall_corner_bathroom_OUT" parent="EdensFlat/EdensFlat_bathroom/Meshes" instance=ExtResource( 30 )]
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, -10, 0, 6 )
 
 [node name="wall_corner_bathroom2" parent="EdensFlat/EdensFlat_bathroom/Meshes" instance=ExtResource( 29 )]
-transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 0, 10 )
+transform = Transform( -1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 2, 0, 10 )
+
+[node name="wall_corner_bathroom3" parent="EdensFlat/EdensFlat_bathroom/Meshes" instance=ExtResource( 29 )]
+transform = Transform( 1.31134e-07, 0, 1, 0, 1, 0, -1, 0, 1.31134e-07, -14, 0, 10 )
+
+[node name="wall_corner_bathroom4" parent="EdensFlat/EdensFlat_bathroom/Meshes" instance=ExtResource( 29 )]
+transform = Transform( 1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -14, 0, 6 )
+
+[node name="wall_corner_bathroom5" parent="EdensFlat/EdensFlat_bathroom/Meshes" instance=ExtResource( 29 )]
+transform = Transform( 1, 0, -1.74846e-07, 0, 1, 0, 1.74846e-07, 0, 1, -10, 0, -2 )
 
 [node name="floor_tile17" parent="EdensFlat/EdensFlat_bathroom/Meshes" instance=ExtResource( 16 )]
 
@@ -577,6 +591,27 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 4 )
 
 [node name="floor_tile25" parent="EdensFlat/EdensFlat_bathroom/Meshes" instance=ExtResource( 16 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 8 )
+
+[node name="floor_tile26" parent="EdensFlat/EdensFlat_bathroom/Meshes" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12, 0, 8 )
+
+[node name="wall" parent="EdensFlat/EdensFlat_bathroom/Meshes" instance=ExtResource( 31 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0, -2 )
+
+[node name="wall2" parent="EdensFlat/EdensFlat_bathroom/Meshes" instance=ExtResource( 31 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -2 )
+
+[node name="wall3" parent="EdensFlat/EdensFlat_bathroom/Meshes" instance=ExtResource( 31 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10, 0, 2 )
+
+[node name="wall4" parent="EdensFlat/EdensFlat_bathroom/Meshes" instance=ExtResource( 31 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -10, 0, 10 )
+
+[node name="wall5" parent="EdensFlat/EdensFlat_bathroom/Meshes" instance=ExtResource( 31 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -6, 0, 10 )
+
+[node name="wall6" parent="EdensFlat/EdensFlat_bathroom/Meshes" instance=ExtResource( 31 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2, 0, 10 )
 
 [node name="Lights" type="Spatial" parent="EdensFlat/EdensFlat_bathroom"]
 
