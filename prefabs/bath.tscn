@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://WARSZTAT/bath.mesh" type="ArrayMesh" id=1]
+[ext_resource path="res://materials/metal_01.tres" type="Material" id=2]
+[ext_resource path="res://textures/128px_metal-brushed_01_BW.png" type="Texture" id=3]
+
+[sub_resource type="SpatialMaterial" id=2]
+metallic = 1.0
+roughness = 0.18
+anisotropy_enabled = true
+anisotropy = 1.0
+anisotropy_flowmap = ExtResource( 3 )
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.744897, 0.526576, 1.85271 )
+
+[node name="bath" type="Spatial"]
+
+[node name="bath" type="MeshInstance" parent="."]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = ExtResource( 2 )
+material/1 = SubResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="bath"]
+
+[node name="CollisionShape" type="CollisionShape" parent="bath/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.677919, 0 )
+shape = SubResource( 1 )

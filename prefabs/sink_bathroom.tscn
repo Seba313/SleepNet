@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://materials/metal_01.tres" type="Material" id=1]
+[ext_resource path="res://materials/gloss.tres" type="Material" id=2]
+[ext_resource path="res://WARSZTAT/sink_bathroom.mesh" type="ArrayMesh" id=3]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.527746, 0.252557, 0.564212 )
+
+[node name="sink_bathroom" type="Spatial"]
+transform = Transform( 1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 0, 0, 0 )
+
+[node name="sink_bathroom" type="MeshInstance" parent="."]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0 )
+mesh = ExtResource( 3 )
+material/0 = ExtResource( 1 )
+material/1 = ExtResource( 2 )
+
+[node name="StaticBody" type="StaticBody" parent="sink_bathroom"]
+
+[node name="CollisionShape" type="CollisionShape" parent="sink_bathroom/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5.94219e-15, 0, -0.557528 )
+shape = SubResource( 1 )

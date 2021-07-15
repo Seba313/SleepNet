@@ -1,0 +1,144 @@
+[gd_resource type="ShaderMaterial" load_steps=13 format=2]
+
+[ext_resource path="res://textures/128px_metal-brushed_01_NM.png" type="Texture" id=1]
+[ext_resource path="res://textures/128px_metal-brushed_01_BW.png" type="Texture" id=2]
+[ext_resource path="res://textures/128px_metal-scratch_BW.png" type="Texture" id=3]
+
+[sub_resource type="VisualShaderNodeTexture" id=1]
+texture = ExtResource( 1 )
+
+[sub_resource type="VisualShaderNodeColorOp" id=2]
+output_port_for_preview = 0
+
+[sub_resource type="VisualShaderNodeTexture" id=3]
+texture = ExtResource( 3 )
+
+[sub_resource type="VisualShaderNodeTexture" id=4]
+texture = ExtResource( 2 )
+
+[sub_resource type="VisualShaderNodeColorConstant" id=5]
+output_port_for_preview = 0
+constant = Color( 0.238892, 0.311153, 0.402344, 1 )
+
+[sub_resource type="VisualShaderNodeColorOp" id=6]
+output_port_for_preview = 0
+operator = 4
+
+[sub_resource type="VisualShaderNodeScalarOp" id=7]
+output_port_for_preview = 0
+default_input_values = [ 0, 0.0, 1, 0.6 ]
+
+[sub_resource type="VisualShaderNodeColorConstant" id=8]
+output_port_for_preview = 0
+constant = Color( 0.585114, 0.593081, 0.601563, 1 )
+
+[sub_resource type="VisualShader" id=9]
+code = "shader_type spatial;
+render_mode specular_schlick_ggx;
+
+uniform sampler2D tex_frg_2;
+uniform sampler2D tex_frg_12;
+uniform sampler2D tex_frg_10;
+
+
+
+void vertex() {
+// Output:0
+
+}
+
+void fragment() {
+// Color:4
+	vec3 n_out4p0 = vec3(0.238892, 0.311153, 0.402344);
+	float n_out4p1 = 1.000000;
+
+// Texture:2
+	vec4 tex_frg_2_read = texture(tex_frg_2, UV.xy);
+	vec3 n_out2p0 = tex_frg_2_read.rgb;
+	float n_out2p1 = tex_frg_2_read.a;
+
+// ScalarOp:8
+	float n_in8p1 = 0.60000;
+	float n_out8p0 = dot(n_out2p0, vec3(0.333333, 0.333333, 0.333333)) + n_in8p1;
+
+// Texture:12
+	vec4 tex_frg_12_read = texture(tex_frg_12, UV.xy);
+	vec3 n_out12p0 = tex_frg_12_read.rgb;
+	float n_out12p1 = tex_frg_12_read.a;
+
+// ColorOp:11
+	vec3 n_out11p0 = vec3(1.0) - (vec3(1.0) - vec3(n_out8p0)) * (vec3(1.0) - n_out12p0);
+
+// ColorOp:5
+	vec3 n_out5p0;
+	{
+		float base = n_out4p0.x;
+		float blend = n_out11p0.x;
+		if (base < 0.5) {
+			n_out5p0.x = 2.0 * base * blend;
+		} else {
+			n_out5p0.x = 1.0 - 2.0 * (1.0 - blend) * (1.0 - base);
+		}
+	}
+	{
+		float base = n_out4p0.y;
+		float blend = n_out11p0.y;
+		if (base < 0.5) {
+			n_out5p0.y = 2.0 * base * blend;
+		} else {
+			n_out5p0.y = 1.0 - 2.0 * (1.0 - blend) * (1.0 - base);
+		}
+	}
+	{
+		float base = n_out4p0.z;
+		float blend = n_out11p0.z;
+		if (base < 0.5) {
+			n_out5p0.z = 2.0 * base * blend;
+		} else {
+			n_out5p0.z = 1.0 - 2.0 * (1.0 - blend) * (1.0 - base);
+		}
+	}
+
+// Color:9
+	vec3 n_out9p0 = vec3(0.585114, 0.593081, 0.601563);
+	float n_out9p1 = 1.000000;
+
+// Texture:10
+	vec4 tex_frg_10_read = texture(tex_frg_10, UV.xy);
+	vec3 n_out10p0 = tex_frg_10_read.rgb;
+	float n_out10p1 = tex_frg_10_read.a;
+
+// Output:0
+	ALBEDO = n_out5p0;
+	ROUGHNESS = dot(n_out9p0, vec3(0.333333, 0.333333, 0.333333));
+	NORMALMAP = n_out10p0;
+
+}
+
+void light() {
+// Output:0
+
+}
+"
+graph_offset = Vector2( -1453, -42 )
+nodes/fragment/0/position = Vector2( 300, 60 )
+nodes/fragment/2/node = SubResource( 4 )
+nodes/fragment/2/position = Vector2( -1160, 80 )
+nodes/fragment/4/node = SubResource( 5 )
+nodes/fragment/4/position = Vector2( -240, 400 )
+nodes/fragment/5/node = SubResource( 6 )
+nodes/fragment/5/position = Vector2( 20, 0 )
+nodes/fragment/8/node = SubResource( 7 )
+nodes/fragment/8/position = Vector2( -920, 80 )
+nodes/fragment/9/node = SubResource( 8 )
+nodes/fragment/9/position = Vector2( -40, 340 )
+nodes/fragment/10/node = SubResource( 1 )
+nodes/fragment/10/position = Vector2( -40, 560 )
+nodes/fragment/11/node = SubResource( 2 )
+nodes/fragment/11/position = Vector2( -700, 80 )
+nodes/fragment/12/node = SubResource( 3 )
+nodes/fragment/12/position = Vector2( -980, 300 )
+nodes/fragment/connections = PoolIntArray( 5, 0, 0, 0, 2, 0, 8, 0, 4, 0, 5, 0, 9, 0, 0, 3, 8, 0, 11, 0, 12, 0, 11, 1, 11, 0, 5, 1, 10, 0, 0, 8 )
+
+[resource]
+shader = SubResource( 9 )

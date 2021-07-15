@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://WARSZTAT/toilet_paper.mesh" type="ArrayMesh" id=1]
+[ext_resource path="res://materials/paper_01.tres" type="Material" id=2]
+[ext_resource path="res://materials/gloss.tres" type="Material" id=3]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.201962, 0.356249, 0.253827 )
+
+[node name="toilet_paper" type="Spatial"]
+
+[node name="toilet_paper" type="MeshInstance" parent="."]
+transform = Transform( 2, 0, 0, 0, -8.74228e-08, -2, 0, 2, -8.74228e-08, 0, 0, 0 )
+mesh = ExtResource( 1 )
+material/0 = ExtResource( 2 )
+material/1 = ExtResource( 3 )
+
+[node name="StaticBody" type="StaticBody" parent="toilet_paper"]
+
+[node name="CollisionShape" type="CollisionShape" parent="toilet_paper/StaticBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.203814, 5.45025e-09, 0.124687 )
+shape = SubResource( 1 )
