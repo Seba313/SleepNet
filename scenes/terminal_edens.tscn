@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://UI/images/white.png" type="Texture" id=1]
 [ext_resource path="res://shaders/CRT.tres" type="Material" id=2]
@@ -9,16 +9,25 @@
 [ext_resource path="res://fonts/pixel_operator_8_n.tres" type="DynamicFont" id=7]
 [ext_resource path="res://UI/UI_theme.theme" type="Theme" id=8]
 [ext_resource path="res://scenes/terminal_edens.gd" type="Script" id=9]
+[ext_resource path="res://sounds/terminal/wrong.ogg" type="AudioStream" id=10]
+[ext_resource path="res://sounds/terminal/right.ogg" type="AudioStream" id=11]
 
 [sub_resource type="Theme" id=1]
 
 [node name="Control" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 5 )
 script = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Audio_WRONG" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+
+[node name="Audio_RIGHT" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
 
 [node name="BG" type="Control" parent="."]
 margin_right = 40.0
@@ -28,10 +37,10 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="BG"]
-margin_left = 0.707092
-margin_top = -0.133789
-margin_right = 1024.71
-margin_bottom = 599.866
+margin_left = 1.17682
+margin_top = -0.603485
+margin_right = 1025.18
+margin_bottom = 599.396
 theme = SubResource( 1 )
 texture = ExtResource( 3 )
 expand = true
@@ -51,6 +60,32 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Check_RYAN" type="CheckBox" parent="."]
+margin_left = 385.161
+margin_top = 234.854
+margin_right = 547.161
+margin_bottom = 263.854
+theme = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
+text = "RYAN"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Check_EDEN" type="CheckBox" parent="."]
+anchor_top = 0.000782827
+anchor_bottom = 0.000782827
+margin_left = 385.631
+margin_top = 197.747
+margin_right = 547.631
+margin_bottom = 226.747
+theme = ExtResource( 5 )
+custom_fonts/font = ExtResource( 6 )
+text = "EDEN"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Button" type="Button" parent="."]
 margin_left = 419.857
 margin_top = 361.182
@@ -65,10 +100,10 @@ __meta__ = {
 }
 
 [node name="LineEdit" type="LineEdit" parent="."]
-margin_left = 390.301
-margin_top = 312.0
-margin_right = 592.301
-margin_bottom = 341.0
+margin_left = 384.664
+margin_top = 308.242
+margin_right = 586.664
+margin_bottom = 337.242
 rect_scale = Vector2( 1, 1.20297 )
 theme = ExtResource( 5 )
 secret = true
@@ -91,28 +126,6 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CheckBox" type="CheckBox" parent="."]
-margin_left = 420.636
-margin_top = 191.242
-margin_right = 533.636
-margin_bottom = 223.242
-theme = ExtResource( 5 )
-text = "EDEN"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="CheckBox2" type="CheckBox" parent="."]
-margin_left = 420.636
-margin_top = 223.242
-margin_right = 533.636
-margin_bottom = 255.242
-theme = ExtResource( 5 )
-text = "RYAN"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
 [node name="Control" type="Control" parent="."]
 margin_right = 40.0
 margin_bottom = 40.0
@@ -121,6 +134,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="Control"]
+visible = false
 material = ExtResource( 2 )
 margin_right = 1024.0
 margin_bottom = 600.0
@@ -132,6 +146,7 @@ __meta__ = {
 }
 
 [node name="TextureRect3" type="TextureRect" parent="."]
+visible = false
 margin_right = 1024.0
 margin_bottom = 600.0
 mouse_filter = 2
@@ -140,3 +155,7 @@ expand = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[connection signal="pressed" from="Check_RYAN" to="." method="_on_Check_RYAN_pressed"]
+[connection signal="pressed" from="Check_EDEN" to="." method="_on_Check_EDEN_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
