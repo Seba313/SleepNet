@@ -29,8 +29,6 @@ func _input(event: InputEvent) -> void:
 				Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 				mouse_mode = "CAPTURED"
 
-	print($Player.get_instance_id())
-
 func _on_Kitchen_body_entered(Player):
 	if $EdensFlat/EdensFlat_kitchen/Lighs/light_kitchen.visible == false:
 		$EdensFlat/EdensFlat_kitchen/Lighs/light_kitchen.visible = true

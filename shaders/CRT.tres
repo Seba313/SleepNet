@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://shaders/CRTShader.shader" type="Shader" id=1]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/screen_width = 1024.0
+shader_param/screen_height = 600.0
+shader_param/BarrelPower = 1.05
+shader_param/color_bleeding = 1.2
+shader_param/bleeding_range_x = 1.0
+shader_param/bleeding_range_y = 1.0
+shader_param/lines_distance = 4.0
+shader_param/scan_size = 5.0
+shader_param/scanline_alpha = 0.95
+shader_param/lines_velocity = 2.0

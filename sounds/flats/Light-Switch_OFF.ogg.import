@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Light-Switch_OFF.ogg-30ad066597999e0be3b061673938adfa.oggstr"
+
+[deps]
+
+source_file="res://sounds/flats/Light-Switch_OFF.ogg"
+dest_files=[ "res://.import/Light-Switch_OFF.ogg-30ad066597999e0be3b061673938adfa.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

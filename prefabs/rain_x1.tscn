@@ -2,9 +2,10 @@
 
 [ext_resource path="res://sprites/rain/1685a62c20a74e3493fe5b44d35bcb183p32lFyWnTbJPusS-1.png" type="Texture" id=1]
 [ext_resource path="res://sprites/rain/1685a62c20a74e3493fe5b44d35bcb183p32lFyWnTbJPusS-3.png" type="Texture" id=2]
-[ext_resource path="res://sounds/rain.ogg" type="AudioStream" id=3]
+[ext_resource path="res://sounds/environment/rain.ogg" type="AudioStream" id=3]
 [ext_resource path="res://sprites/rain/1685a62c20a74e3493fe5b44d35bcb183p32lFyWnTbJPusS-0.png" type="Texture" id=4]
 [ext_resource path="res://sprites/rain/1685a62c20a74e3493fe5b44d35bcb183p32lFyWnTbJPusS-2.png" type="Texture" id=5]
+
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {

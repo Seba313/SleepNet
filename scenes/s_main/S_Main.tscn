@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://prefabs/wall_corner.tscn" type="PackedScene" id=1]
 [ext_resource path="res://scenes/s_main/s_main.gd" type="Script" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://prefabs/wall_window_L.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/s_main/materials/blue.material" type="Material" id=7]
 [ext_resource path="res://scenes/assets/MovingPlatform.tscn" type="PackedScene" id=8]
-[ext_resource path="res://shaders/PSXEffect.shader" type="Shader" id=9]
 [ext_resource path="res://textures/128px_leaks_01_BW.png" type="Texture" id=10]
 [ext_resource path="res://prefabs/wall_door_R.tscn" type="PackedScene" id=11]
 [ext_resource path="res://world_environments/flat_01_EDENS.tres" type="Environment" id=12]
@@ -24,8 +23,8 @@
 [ext_resource path="res://prefabs/wall_door_M.tscn" type="PackedScene" id=22]
 [ext_resource path="res://prefabs/rain_x2.tscn" type="PackedScene" id=23]
 [ext_resource path="res://prefabs/door_not-locked.tscn" type="PackedScene" id=24]
-[ext_resource path="res://sounds/Light-Switch_OFF.ogg" type="AudioStream" id=26]
-[ext_resource path="res://sounds/Light-Switch_ON.ogg" type="AudioStream" id=27]
+[ext_resource path="res://sounds/flats/Light-Switch_OFF.ogg" type="AudioStream" id=26]
+[ext_resource path="res://sounds/flats/Light-Switch_ON.ogg" type="AudioStream" id=27]
 [ext_resource path="res://prefabs/wall_door_bathroom_R.tscn" type="PackedScene" id=28]
 [ext_resource path="res://prefabs/wall_corner_bathroom_IN.tscn" type="PackedScene" id=29]
 [ext_resource path="res://prefabs/chair_small.tscn" type="PackedScene" id=30]
@@ -63,16 +62,12 @@ tracks/0/keys = {
 "values": [ Vector3( 21.3739, 0.877409, -17.2226 ), Vector3( 11.8743, 0.877409, -17.2226 ), Vector3( 21.3739, 0.877409, -17.2226 ) ]
 }
 
-[sub_resource type="ShaderMaterial" id=5]
-shader = ExtResource( 9 )
-shader_param/snapRes = 10.0
-
-[sub_resource type="BoxShape" id=7]
+[sub_resource type="BoxShape" id=5]
 extents = Vector3( 11, 1, 8 )
 
-[sub_resource type="PlaneMesh" id=8]
+[sub_resource type="PlaneMesh" id=6]
 
-[sub_resource type="SpatialMaterial" id=9]
+[sub_resource type="SpatialMaterial" id=7]
 flags_transparent = true
 params_specular_mode = 1
 params_blend_mode = 1
@@ -82,19 +77,19 @@ albedo_color = Color( 0, 0, 0, 1 )
 roughness = 0.32
 roughness_texture = ExtResource( 10 )
 
-[sub_resource type="BoxShape" id=10]
+[sub_resource type="BoxShape" id=8]
 extents = Vector3( 11, 1, 7 )
 
-[sub_resource type="BoxShape" id=11]
+[sub_resource type="BoxShape" id=9]
 extents = Vector3( 7, 1, 1 )
 
-[sub_resource type="BoxShape" id=12]
+[sub_resource type="BoxShape" id=10]
 extents = Vector3( 1, 1, 2 )
 
-[sub_resource type="BoxShape" id=13]
+[sub_resource type="BoxShape" id=11]
 extents = Vector3( 11, 1.9818, 8 )
 
-[sub_resource type="BoxShape" id=14]
+[sub_resource type="BoxShape" id=12]
 extents = Vector3( 1, 1, 2 )
 
 [node name="S_Main" type="Spatial"]
@@ -135,7 +130,6 @@ autoplay = "Nowa animacja"
 "anims/Nowa animacja" = SubResource( 4 )
 
 [node name="ViewportContainer" type="ViewportContainer" parent="."]
-material = SubResource( 5 )
 margin_right = 1024.0
 margin_bottom = 600.0
 __meta__ = {
@@ -177,7 +171,7 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -10, 0,
 
 [node name="CollisionShape" type="CollisionShape" parent="EdensFlat/EdensFlat_kitchen/Meshes/StaticBody"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, -1, -2 )
-shape = SubResource( 7 )
+shape = SubResource( 5 )
 
 [node name="floor_tile" parent="EdensFlat/EdensFlat_kitchen/Meshes" instance=ExtResource( 13 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -8, 0, 4 )
@@ -316,8 +310,8 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 6, 0, 6
 
 [node name="glass" type="MeshInstance" parent="EdensFlat/EdensFlat_kitchen/Meshes"]
 transform = Transform( -5.5, 1.50996e-07, -9.90035e-15, 0, -5.13382e-08, -1.76172, -8.30477e-07, -1, 6.55671e-08, 2, 5, 6 )
-mesh = SubResource( 8 )
-material/0 = SubResource( 9 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 7 )
 
 [node name="rain" parent="EdensFlat/EdensFlat_kitchen/Meshes" instance=ExtResource( 23 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 2, 5.4, 6.4 )
@@ -370,19 +364,19 @@ collision_mask = 2
 
 [node name="CollisionShape2" type="CollisionShape" parent="EdensFlat/EdensFlat_kitchen/Areas/Kitchen"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 1 )
-shape = SubResource( 10 )
+shape = SubResource( 8 )
 
 [node name="CollisionShape" type="CollisionShape" parent="EdensFlat/EdensFlat_kitchen/Areas/Kitchen"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0, -7 )
-shape = SubResource( 11 )
+shape = SubResource( 9 )
 
 [node name="CollisionShape3" type="CollisionShape" parent="EdensFlat/EdensFlat_kitchen/Areas/Kitchen"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -6 )
-shape = SubResource( 12 )
+shape = SubResource( 10 )
 
 [node name="CollisionShape4" type="CollisionShape" parent="EdensFlat/EdensFlat_kitchen/Areas/Kitchen"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, 6 )
-shape = SubResource( 12 )
+shape = SubResource( 10 )
 
 [node name="Sounds" type="Spatial" parent="EdensFlat/EdensFlat_kitchen"]
 transform = Transform( 0.999962, 0.00874399, -1.66978e-12, -0.00874399, 0.999962, -3.82212e-10, -1.66978e-12, 3.82212e-10, 1, 1.25451e-07, 3.39526, -2.86997 )
@@ -406,15 +400,15 @@ collision_mask = 2
 
 [node name="CollisionShape" type="CollisionShape" parent="EdensFlat/EdensFlat_bedroom/areas/Bedroom"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0 )
-shape = SubResource( 13 )
+shape = SubResource( 11 )
 
 [node name="CollisionShape5" type="CollisionShape" parent="EdensFlat/EdensFlat_bedroom/areas/Bedroom"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -6 )
-shape = SubResource( 12 )
+shape = SubResource( 10 )
 
 [node name="CollisionShape6" type="CollisionShape" parent="EdensFlat/EdensFlat_bedroom/areas/Bedroom"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, 6 )
-shape = SubResource( 12 )
+shape = SubResource( 10 )
 
 [node name="meshes" type="Spatial" parent="EdensFlat/EdensFlat_bedroom"]
 
@@ -423,15 +417,15 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0, -2 )
 
 [node name="CollisionShape" type="CollisionShape" parent="EdensFlat/EdensFlat_bedroom/meshes/StaticBody2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2.38419e-07 )
-shape = SubResource( 7 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape2" type="CollisionShape" parent="EdensFlat/EdensFlat_bedroom/meshes/StaticBody2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 6 )
-shape = SubResource( 14 )
+shape = SubResource( 12 )
 
 [node name="CollisionShape3" type="CollisionShape" parent="EdensFlat/EdensFlat_bedroom/meshes/StaticBody2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -6 )
-shape = SubResource( 14 )
+shape = SubResource( 12 )
 
 [node name="floor_tile27" parent="EdensFlat/EdensFlat_bedroom/meshes" instance=ExtResource( 13 )]
 transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16, 1.2, 4 )
@@ -444,8 +438,8 @@ transform = Transform( 1.31134e-07, 0, -1, 0, 1, 0, 1, 0, 1.31134e-07, 38, 0, -2
 
 [node name="glass2" type="MeshInstance" parent="EdensFlat/EdensFlat_bedroom/meshes"]
 transform = Transform( -5.90064e-07, -1, 6.55671e-08, 0, -5.13382e-08, -1.76172, 5.5, -1.07285e-07, 7.03432e-15, 38.2458, 5, 0.187731 )
-mesh = SubResource( 8 )
-material/0 = SubResource( 9 )
+mesh = SubResource( 6 )
+material/0 = SubResource( 7 )
 
 [node name="rain2" parent="EdensFlat/EdensFlat_bedroom/meshes" instance=ExtResource( 23 )]
 transform = Transform( 1, 0, -1.06581e-14, 0, 1, 0, 1.06581e-14, 0, 1, 38.2, 5.4, 0.655714 )
@@ -604,7 +598,7 @@ transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 12, 0, 
 
 [node name="CollisionShape" type="CollisionShape" parent="EdensFlat/EdensFlat_bathroom/Meshes/StaticBody3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -6, -1, 4 )
-shape = SubResource( 7 )
+shape = SubResource( 5 )
 
 [node name="wall_bathroom" parent="EdensFlat/EdensFlat_bathroom/Meshes" instance=ExtResource( 33 )]
 transform = Transform( -1, 0, -1.19209e-07, 0, 1, 0, 1.19209e-07, 0, -1, -2, 0, 10 )
